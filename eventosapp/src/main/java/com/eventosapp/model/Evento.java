@@ -1,15 +1,15 @@
 package com.eventosapp.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table(name = "tb_eventos")
 public class Evento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,6 +22,9 @@ public class Evento implements Serializable {
     private String local;
     private String data;
     private String horario;
+
+    @OneToMany
+    private List<Convidado> convidados;
 
     public String getNome() {
         return nome;
