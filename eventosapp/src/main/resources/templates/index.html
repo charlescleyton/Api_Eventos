@@ -3,22 +3,40 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventosApp</title>
 </head>
 <body>
-    <h1>Lista de Eventos</h1>
-    <h3><a href="cadastrarEvento">Cadastrar Evento</a></h3>
+    <h3>Lista de Eventos</h3>
+    
+    <table style="width: 600px"  class="table table-striped">
+        <thead>
+          <tr>
+              <th>Nome:</th>
+              <th>Local:</th>
+              <th>Data:</th>
+              <th>Horario:</th>
+          </tr>
+        </thead>
 
-<div th:each="evento: ${eventos}">
-    <div class="row">
-<p><span th:text="${evento.nome}"></span></p>
-<p><span th:text="${evento.local}"></span></p>
-<p><span th:text="${evento.data}"></span></p>
-<p><span th:text="${evento.horario}"></span></p>
-
-    </div>
-</div>
+        <tbody th:each="evento: ${eventos}">
+          <tr>
+            <td><span th:text="${evento.nome}"></span></td>
+            <td><span th:text="${evento.local}"></span></td>
+            <td><span th:text="${evento.data}"></span></td>
+            <td><span th:text="${evento.horario}"></span></td>
+          </tr>
+         
+        </tbody>
+    </table>
+    <h6><a href="cadastrarEvento">Cadastrar um novo evento</a></h>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
 </body>
 </html>
