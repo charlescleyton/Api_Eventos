@@ -16,7 +16,6 @@ import com.eventosapp.model.Evento;
 import com.eventosapp.repository.ConvidadoRepository;
 import com.eventosapp.repository.EventoRepository;
 
-
 @Controller
 public class EventoController {
 
@@ -32,10 +31,13 @@ public class EventoController {
     }
 
     @RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
-    public String form(Evento evento) {
-
+    public String form(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("mensagem", "Verifique os campos!");
+            return "redirect:/cadastrarEvento";
+        }
         er.save(evento);
-
+        attributes.addFlashAttribute("mensagem", "Evento Cadastrado com sucesso!");
         return "redirect:/cadastrarEvento";
     }
 
