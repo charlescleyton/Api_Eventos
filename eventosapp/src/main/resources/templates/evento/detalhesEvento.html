@@ -47,6 +47,7 @@
             <tr>
                 <th>Nome do Convidado: </th>
                 <th>RG:</th>
+                <th>Delete:</th>
             </tr>
         </thead>
         
@@ -54,6 +55,7 @@
             <tr>
                 <td><span th:text="${convidado.nomeConvidado}"></span></td>
                 <td><span th:text="${convidado.rg}"></span></td>
+                <td><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}">Deletar</a></td>
             </tr>
         </tbody>
     </table>
