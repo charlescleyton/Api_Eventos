@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">     
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style.css"/>
     <title>Cadastro de Eventos</title>
 </head>
 <body>
-<table style="width: 600px;">
-    <h3>Cadastrar Eventos</h3>
-    <th:block th:include="evento/mensagemValidacao"></th:block>
-    <form method="POST">
-        <div class="col-sm-3 col-form-label col-form-label-sm">
-          <div class="col">
-            <input type="text" name="nome" class="form-control" placeholder="Nome">
-          </div>
-          <div class="col">
-            <input type="text" name="local" class="form-control" placeholder="local">
-          </div>
-          <div class="col">
-            <input type="date" name="data" class="form-control" placeholder="Data">
-          </div>
-          <div class="col">
-            <input type="text" name="horario" class="form-control" placeholder="Horario">
-          </div>
-          <br>
-          <button type="submit" class="btn btn-dark">Salvar</button>
-        </div>
-       
-   </form>
-</table>
-    
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <header>
+		<nav class="menu">
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Cadastro de Eventos:</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Eventos</a></li>
+		      </ul>
+		    </div>
+		</nav>
+	
+	</header>
+  <th:block th:include="evento/mensagemValidacao"></th:block>
+	<div class="container formEvento">
+	
+	<form class="container" method="post">
+		Nome: <input type="text" value="" name="nome"/>
+		<div class="row">
+			<div class="input-field col s6">
+				Local: <input type="text" value="" name="local"/>
+			</div>
+			<div class="input-field col s3">
+				Data: <input type="date" value="" name="data"/>
+			</div>
+			<div class="input-field col s3">
+				Horario: <input type="time" value="" name="horario"/>
+			</div>
+		</div>
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
